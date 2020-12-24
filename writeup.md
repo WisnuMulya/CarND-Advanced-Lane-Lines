@@ -1,5 +1,5 @@
-**Advanced Lane Finding Project**
----
+# **Advanced Lane Finding Project**
+***
 My whole work could be found under the `Advanced Lane Finding Project.ipynb` and
 this writeup summarizes the results.
 
@@ -25,8 +25,8 @@ The goals / steps of this project are the following:
 [image8]: ./img/sliding-windows-images.png "Sliding Windows Images"
 [image9]: ./img/road-images.png "Road Images"
 [image10]: ./img/road-with-infos.png "Road Images with Information Annotated"
-[image11]: ./img/unwarp-images.png "Unwarped Lane onto Original Images"
----
+[image11]: ./img/unwarped-images.png "Unwarped Lane onto Original Images"
+***
 
 ## Writeup / README
 
@@ -115,7 +115,7 @@ images:
 
 The outputs could also be found under the directory `./output_images/binary_warped`.
 
-#### 4. Describe how (and identify where in your code) you identified lane-line pixels and fit their positions with a polynomial?
+### 4. Describe how (and identify where in your code) you identified lane-line pixels and fit their positions with a polynomial?
 The work for this rubric could be find in the notebook under the part with heading
 `4. Lane Finding`.
 
@@ -158,7 +158,7 @@ The outputs could also be found under the following directories:
 - `./output_images/lane_found` for the output images of sliding windows, where the lane lines and the road drawn
 - `./output_images/prior_poly` for the output images of search around poly
 
-#### 5. Describe how (and identify where in your code) you calculated the radius of curvature of the lane and the position of the vehicle with respect to center.
+### 5. Describe how (and identify where in your code) you calculated the radius of curvature of the lane and the position of the vehicle with respect to center.
 
 The work for this rubric is in the notebook under the part with a heading
 `5. Curvature and Position Finding`.
@@ -176,7 +176,7 @@ Here is the overview of the outputs:
 
 The outputs could also be found under the directory `./output_images/curvature_position`.
 
-#### 6. Provide an example image of your result plotted back down onto the road such that the lane area is identified clearly.
+### 6. Provide an example image of your result plotted back down onto the road such that the lane area is identified clearly.
 
 The code for this rubric is found in the notebook under the part with a heading
 `6. Lane Unwarp`.
@@ -199,11 +199,11 @@ overlaid_img = cv2.addWeighted(img, 1, inverse_lane, 1, 0)
 Here is the overview of the outputs:
 ![Unwarped Images][image11]
 
----
+***
 
-### Pipeline (video)
+## Pipeline (video)
 
-#### 1. Provide a link to your final video output.  Your pipeline should perform reasonably well on the entire project video (wobbly lines are ok but no catastrophic failures that would cause the car to drive off the road!).
+### 1. Provide a link to your final video output.  Your pipeline should perform reasonably well on the entire project video (wobbly lines are ok but no catastrophic failures that would cause the car to drive off the road!).
 
 The code for this rubric could be found in the notebook under the part with the
 heading `7. Full Pipeline for the Videos` and `4.0. Creating Line Classes to Help in Video Processing`.
@@ -213,23 +213,23 @@ Here are the overview of the algorithm:
 2. Gradient and color threshold application
 3. Transform to bird's eye view
 4. If `Line.bestx` is found and search around poly has **not failed for more than 5 times**:
-  - Run **search around poly** flow
-  - Check Sanity
-  - If sane:
-    - Fail count is reseted to 0
-    - Append current X coordinates fitted to class variable
-  - If not:
-    - Iterate fail count
-    - Draw lines from `self.bestx` (best fitted from previous lines)
+    * Run **search around poly** flow
+    * Check Sanity
+    * If sane:
+      * Fail count is reseted to 0
+      * Append current X coordinates fitted to class variable
+    * If not:
+      * Iterate fail count
+      * Draw lines from `self.bestx` (best fitted from previous lines)
 5. If no `Line.bestx`:
-   - Run **sliding windows** flow
-   - Check Sanity
-   - If sane:
-    - Fail count is reseted to 0
-    - Append current X coordinates fitted to class variable
-  - If not:
-    - Iterate fail count
-    - Draw lanes anyway
+    * Run **sliding windows** flow
+    * Check Sanity
+    * If sane:
+      * Fail count is reseted to 0
+      * Append current X coordinates fitted to class variable
+    * If not:
+      * Iterate fail count
+      * Draw lanes anyway
 
 The `sanity_check()` could be found under the `7. Full Pipeline for the Videos`,
 of which I define sanity as having more or less the same curvature of the left
@@ -249,12 +249,12 @@ three sane lines. This is later to be used for the search around poly flow.
 
 The output videos could be found under the `./output_videos` directory.
 
-**IMPORTANT NOTE**
+**IMPORTANT NOTE:**
 I need to always rerun the class definition every time I process the video, as
 to reset the class variable within it, so it does not contain the previous lines
 from the frame of the previously processed video.
 
----
+***
 
 ## Discussion
 
